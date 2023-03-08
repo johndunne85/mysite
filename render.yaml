@@ -1,14 +1,13 @@
 databases:
   - name: mysite
-    databaseName: mysite
-    user: mysite
+    ipAllowList: []
 
 services:
   - type: web
     name: mysite
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: bundle exec rails s
     envVars:
       - key: DATABASE_URL
         fromDatabase:
